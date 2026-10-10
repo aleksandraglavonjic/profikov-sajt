@@ -1854,3 +1854,25 @@ section#konfigurator {
     transform: translateY(-8px) scale(1.12);
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
 }
+/* PROFIKOV - ZLATNA NASLOVNA NA TELEFONU */
+
+:root {
+    color-scheme: only light;
+}
+
+@media (max-width: 768px) {
+
+    .hero-content h1 {
+        background: none !important;
+        color: #ffd76b !important;
+        -webkit-text-fill-color: #ffd76b !important;
+        animation: none !important;
+        text-shadow: 0 0 18px rgba(255, 215, 107, 0.5);
+    }
+
+    .hero-content .btn {
+        background: #ffd76b !important;
+        color: #17120a !important;
+        -webkit-text-fill-color: #17120a !important;
+    }
+}
