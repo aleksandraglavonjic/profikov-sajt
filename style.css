@@ -1,0 +1,1856 @@
+
+/* OSNOVNA PODESAVANJA */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #101010;
+    color: white;
+}
+
+/* NAVIGACIJA */
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+#languageBtn {
+    background: transparent;
+    border: 1px solid #d4af37;
+    color: #d4af37;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* NASLOVNA STRANA */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 650px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoomKapija 15s ease-in-out infinite alternate;
+}
+
+/* TAMNI EFEKAT PREKO SLIKE */
+
+.hero::after {
+   content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.35),
+        rgba(0, 0, 0, 0.85)
+    );
+}
+
+/* TEKST PREKO FOTOGRAFIJE */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    animation: tekstUlaz 1.6s ease-out both;
+}
+
+.hero-content h1 {
+    font-size: clamp(52px, 9vw, 110px);
+    color: #d4af37;
+    letter-spacing: 8px;
+    text-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+.hero-content h2 {
+    font-size: clamp(22px, 4vw, 40px);
+    margin: 20px 0;
+    font-weight: 300;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+/* ZLATNO DUGME */
+
+.btn {
+    display: inline-block;
+    padding: 16px 30px;
+    background: #d4af37;
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.4s;
+}
+
+.btn:hover {
+    background: white;
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+}
+
+/* ANIMACIJE */
+
+@keyframes zoomKapija {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.12);
+    }
+}
+
+@keyframes tekstUlaz {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* OSTALE SEKCIJE */
+
+section:not(.hero) {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+section:not(.hero) h2 {
+    color: #d4af37;
+    margin-bottom: 25px;
+}
+
+/* TELEFON */
+
+@media (max-width: 768px) {
+    .header {
+    position: absolute;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 15px;
+}
+.header .logo {
+    order: 1;
+    margin-right: auto;
+}
+
+.header #languageBtn {
+    order: 2;
+}
+
+.header .menu-toggle {
+    order: 3;
+}
+
+.header nav {
+    order: 4;
+    flex-basis: 100%;
+}
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .hero-content h1 {
+        letter-spacing: 3px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-image,
+    .hero-content {
+        animation: none;
+    }
+}
+
+/* LUKSUZNI ZLATNI NASLOV */
+
+.hero-content h1 {
+    background: linear-gradient(
+        90deg,
+        #a87922,
+        #ffd700,
+        #fff2aa,
+        #d4af37,
+        #a87922
+    );
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: zlatniSjaj 5s linear infinite;
+}
+
+/* POMERANJE SVETLOSTI */
+
+@keyframes zlatniSjaj {
+    0% {
+        background-position: 200% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+/* EFEKAT NA DUGMETU */
+
+.btn {
+    border-radius: 4px;
+    box-shadow: 0 0 18px rgba(212, 175, 55, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content h1 {
+        animation: none;
+    }
+}
+
+/* TOPLI ZLATNI SJAJ PREKO KAPIJE */
+
+.hero::after {
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(255, 125, 0, 0.35),
+            transparent 60%
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.85)
+        );
+
+    animation: vatreniSjaj 5s ease-in-out infinite alternate;
+}
+
+@keyframes vatreniSjaj {
+    from {
+        opacity: 0.65;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* LEPŠI I ČITLJIVIJI TEKST */
+
+.hero-content h2 {
+    font-size: 34px;
+    text-shadow: 0 3px 12px black;
+}
+
+.hero-content p {
+    font-size: 19px;
+    font-weight: 500;
+    text-shadow: 0 2px 10px black;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 35px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero::after {
+        animation: none;
+    }
+}
+
+/* ZLATNE VARnice PREKO KAPIJE */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            circle,
+            #ffd700 2px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle,
+            #ff8c00 2px,
+            transparent 5px
+        ),
+        radial-gradient(
+            circle,
+            #fff2a0 1px,
+            transparent 3px
+        );
+
+    background-size:
+        180px 180px,
+        250px 250px,
+        130px 130px;
+
+    background-position:
+        20px 30px,
+        80px 100px,
+        130px 60px;
+
+    opacity: 0.6;
+
+    animation: leteceVarnice 9s linear infinite;
+}
+
+@keyframes leteceVarnice {
+    0% {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.7;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+}
+
+/* ZADRŽAVAMO TAMNI PRELIV */
+
+.hero::after {
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero::before {
+        animation: none;
+    }
+}
+
+/* KONFIGURATOR */
+
+.konfigurator-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+    align-items: start;
+}
+
+/* OPCIJE KUPCA */
+
+.opcije {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #202020;
+    padding: 30px;
+    border: 1px solid #b18b46;
+    border-radius: 10px;
+}
+
+.opcije label {
+    color: #d4af37;
+    font-size: 18px;
+}
+
+.opcije select {
+    padding: 15px;
+    font-size: 16px;
+    background: #333;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#rezultat {
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* CRTANJE KAPIJE */
+
+.prikaz-kapije {
+    background: #f5f1e9;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: #202020;
+}
+
+.prikaz-kapije h3 {
+    margin-bottom: 20px;
+}
+
+#skicaKapije {
+    width: 100%;
+    height: auto;
+    color: #202020;
+    transition: color 0.5s ease;
+}
+
+/* PRILAGOdjAVANJE TELEFONU */
+
+@media (max-width: 768px) {
+    .konfigurator-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* UNOS DIMENZIJA */
+
+.opcije input {
+    padding: 15px;
+    background: #333;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* PRIKAZ CENE */
+
+.obracun {
+    margin-top: 20px;
+    padding: 25px;
+    background: #141414;
+    border: 1px solid #d4af37;
+    border-radius: 8px;
+}
+
+.obracun h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.obracun h2 {
+    color: #d4af37;
+    font-size: 32px;
+    margin: 15px 0;
+}
+
+.obracun small {
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* PROFESIONALNI PRIKAZ PONUDE */
+
+.detalji-ponude {
+    margin: 20px 0;
+    padding: 20px 0;
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+}
+
+.detalji-ponude p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin: 0;
+    padding: 12px 0;
+
+    font-size: 15px;
+    color: #ddd;
+}
+
+.detalji-ponude strong {
+    color: #d4af37;
+    font-size: 17px;
+    text-align: right;
+}
+
+.obracun {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.obracun #cenaKapije {
+    font-size: clamp(26px, 4vw, 38px);
+    color: #ffd36e;
+    margin: 20px 0;
+}
+
+/* DUGME DODAJ U KORPU */
+
+#dodajUKorpu {
+    width: 100%;
+    margin-top: 25px;
+    padding: 17px;
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #f7dc85,
+        #b8862b
+    );
+
+    color: #151515;
+    border: none;
+    border-radius: 6px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#dodajUKorpu:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+}
+
+/* PROFIKOV - IZGLED KORPE */
+
+.korpa-panel {
+    margin-top: 25px;
+    padding: 25px;
+    background: #191919;
+    border: 1px solid #b89442;
+    border-radius: 10px;
+}
+
+.korpa-panel h3 {
+    color: #d4af37;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+/* POJEDINACNI PROIZVOD */
+
+.stavka-korpe {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid #444;
+}
+
+.stavka-korpe span {
+    color: #f0f0f0;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* DUGME UKLONI */
+
+.ukloni-proizvod {
+    background: transparent;
+    color: #f08080;
+    border: 1px solid #b85c5c;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.ukloni-proizvod:hover {
+    background: #b85c5c;
+    color: white;
+}
+
+/* UKUPAN IZNOS */
+
+.korpa-ukupno {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.korpa-ukupno strong {
+    color: #d4af37;
+}
+
+/* PRIKAZ NA TELEFONU */
+
+@media (max-width: 600px) {
+    .stavka-korpe {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* PROFIKOV - KATALOG KOVANIH ELEMENATA */
+
+.katalog-elemenata {
+    padding: 70px 5%;
+    background: #101010;
+    color: white;
+    text-align: center;
+}
+
+.katalog-elemenata h2 {
+    color: #d4af37;
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.katalog-elemenata > p {
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+/* RASPORED KARTICA */
+
+.proizvodi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* KARTICE */
+
+.proizvod {
+    background: linear-gradient(
+        145deg, #282828, #161616
+    );
+    border: 1px solid #80662e;
+    border-radius: 14px;
+    padding: 35px 25px;
+    transition: 0.3s ease;
+}
+
+.proizvod:hover {
+    transform: translateY(-7px);
+    border-color: #ffd36e;
+    box-shadow: 0 12px 30px rgba(212,175,55,0.2);
+}
+
+.proizvod h3 {
+    color: #f1d58a;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.proizvod p {
+    margin-bottom: 25px;
+    color: #dddddd;
+}
+
+/* DUGMAD */
+
+.dodaj-element,
+.upit-element {
+    padding: 14px 18px;
+    width: 100%;
+    background: linear-gradient(
+        135deg, #b8862b, #f7dc85
+    );
+    color: #151515;
+    border: none;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* TELEFON */
+
+@media (max-width: 768px) {
+    .proizvodi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* DODATNO ULEPSAVANJE KATALOGA */
+
+.proizvod {
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dodaj-element,
+.upit-element {
+    background: #d4af37;
+    color: #111111;
+    font-size: 15px;
+    font-weight: 700;
+    min-height: 48px;
+    transition: 0.3s ease;
+}
+
+.dodaj-element:hover,
+.upit-element:hover {
+    background: #f2ca61;
+    transform: translateY(-2px);
+}
+
+/* =================================
+   PROFIKOV - LUKSUZNA GALERIJA
+================================= */
+
+.profikov-galerija {
+    padding: 90px 5%;
+    background: #101010;
+    color: #ffffff;
+    text-align: center;
+}
+
+.profikov-galerija h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    color: #d4af37;
+    margin-bottom: 16px;
+}
+
+.galerija-opis {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: #cccccc;
+    line-height: 1.7;
+}
+
+/* FILTERI */
+
+.galerija-filteri {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.filter-dugme {
+    padding: 12px 20px;
+    border: 1px solid #b89442;
+    border-radius: 30px;
+    background: transparent;
+    color: #e5e5e5;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.filter-dugme:hover,
+.filter-dugme.aktivan {
+    background: #d4af37;
+    color: #111111;
+    border-color: #d4af37;
+}
+
+/* RASPORED FOTOGRAFIJA */
+
+.galerija-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* KARTICE */
+
+.galerija-kartica {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #584829;
+    border-radius: 12px;
+    background: #1c1c1c;
+    transition: transform 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.galerija-kartica:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.18);
+    border-color: #d4af37;
+}
+
+.galerija-kartica img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.galerija-kartica:hover img {
+    transform: scale(1.07);
+}
+
+.galerija-kartica figcaption {
+    padding: 17px;
+    color: #f1d58a;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+    .galerija-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+    .profikov-galerija {
+        padding: 60px 20px;
+    }
+
+    .galerija-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .galerija-kartica img {
+        height: 240px;
+    }
+}
+
+/* MANJE ANIMACIJA PO POTREBI */
+
+@media (prefers-reduced-motion: reduce) {
+    .galerija-kartica,
+    .galerija-kartica img,
+    .filter-dugme {
+        transition: none;
+    }
+}
+
+/* PROFIKOV - UVEĆANI PRIKAZ SLIKA */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.94);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 60px 55px;
+}
+
+/* Prikaz kada kliknemo fotografiju */
+
+.lightbox.otvoren {
+    display: flex;
+}
+
+/* Uvećana fotografija */
+
+#velikaSlika {
+    display: block;
+    max-width: 90%;
+    max-height: 75vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+}
+
+/* Dugme za zatvaranje */
+
+.lightbox-zatvori {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 42px;
+    color: #d4af37;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Strelice */
+
+.lightbox-prethodna,
+.lightbox-sledeca {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #d4af37;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.lightbox-prethodna {
+    left: 20px;
+}
+
+.lightbox-sledeca {
+    right: 20px;
+}
+
+/* Naziv fotografije */
+
+#opisVelikeSlike {
+    color: #e7c878;
+    margin-top: 18px;
+    text-align: center;
+}
+
+/* Telefon */
+
+@media (max-width: 600px) {
+    .lightbox {
+        padding: 60px 35px;
+    }
+
+    #velikaSlika {
+        max-width: 100%;
+    }
+
+    .lightbox-prethodna,
+    .lightbox-sledeca {
+        font-size: 28px;
+    }
+}
+
+/* PROFIKOV - MOBILNI MENI */
+
+/* Na računaru sakrivamo tri crtice */
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* Prikaz na telefonu */
+
+@media (max-width: 768px) {
+
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 2;
+        margin-left: auto;
+    }
+
+    #languageBtn {
+        order: 1;
+    }
+
+    #mobilnaNavigacija {
+        display: none;
+        order: 3;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 15px 0;
+        background: #171717;
+        border-top: 1px solid #d4af37;
+    }
+
+    #mobilnaNavigacija.otvoren {
+        display: flex;
+    }
+
+    #mobilnaNavigacija a {
+        display: block;
+        width: 100%;
+        padding: 13px;
+        text-align: center;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    #mobilnaNavigacija a:hover {
+        color: #d4af37;
+        background: #252525;
+    }
+}
+
+/* PROFIKOV - FORMULAR ZA UPIT */
+
+.korpa-upit {
+    clear: both;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #b89442;
+}
+
+.korpa-upit h3 {
+    color: #d4af37;
+    font-size: 23px;
+    margin-bottom: 12px;
+}
+
+.korpa-upit p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Raspored polja jedno ispod drugog */
+
+#formaUpit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#formaUpit label {
+    display: block;
+    color: #e6c16c;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Polja za unos */
+
+#formaUpit input,
+#formaUpit textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    background: #252a35;
+    color: #ffffff;
+    border: 1px solid #78633b;
+    border-radius: 7px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+#formaUpit input:focus,
+#formaUpit textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+#formaUpit textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* Zlatno dugme */
+
+#posaljiUpit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background: #d4af37;
+    color: #171717;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#posaljiUpit:hover {
+    background: #f2d06e;
+}
+/* ==================================
+   PROFIKOV - KONTAKT SEKCIJA
+================================== */
+
+.kontakt-sekcija {
+    padding: 90px 20px;
+    background: linear-gradient(
+        145deg,
+        #0b0b0b,
+        #1c1c1c,
+        #101010
+    );
+    text-align: center;
+    color: #ffffff;
+}
+
+/* Naslov */
+
+.kontakt-sekcija h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+/* Opis */
+
+.kontakt-opis {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    color: #cccccc;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Glavna kontakt kartica */
+
+.kontakt-kartica {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 45px 35px;
+    background: #191919;
+    border: 1px solid #b89442;
+    border-radius: 16px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(212, 175, 55, 0.08);
+}
+
+/* Naziv firme */
+
+.kontakt-kartica h3 {
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+/* Slogan */
+
+.kontakt-podnaslov {
+    color: #e3c67d;
+    font-style: italic;
+    margin-bottom: 35px;
+}
+
+/* Kontakt podaci */
+
+.kontakt-podatak {
+    margin: 25px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #3b3425;
+}
+
+.kontakt-podatak strong {
+    display: block;
+    color: #d4af37;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.kontakt-podatak p {
+    color: #cccccc;
+    line-height: 1.7;
+}
+
+.kontakt-podatak a {
+    color: #ffffff;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color 0.3s ease;
+}
+
+.kontakt-podatak a:hover {
+    color: #d4af37;
+}
+
+/* Zlatno dugme */
+
+.kontakt-dugme {
+    display: inline-block;
+    padding: 16px 35px;
+    margin-top: 20px;
+    background: #d4af37;
+    color: #111111;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.kontakt-dugme:hover {
+    background: #f2d06e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+/* Prilagođavanje telefonu */
+
+@media (max-width: 600px) {
+
+    .kontakt-sekcija {
+        padding: 60px 18px;
+    }
+
+    .kontakt-kartica {
+        padding: 30px 20px;
+    }
+
+    .kontakt-kartica h3 {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .kontakt-opis {
+        font-size: 15px;
+    }
+
+    .kontakt-dugme {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+/* ==================================
+   PROFIKOV - FOOTER
+================================== */
+
+.footer {
+    background: #080808;
+    color: #cccccc;
+    padding: 65px 6% 0;
+    border-top: 2px solid #d4af37;
+}
+
+/* TRI KOLONE */
+
+.footer-sadrzaj {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 50px;
+}
+
+/* POJEDINAČNE KOLONE */
+
+.footer-kolona {
+    min-width: 0;
+}
+
+.footer-kolona h2 {
+    color: #d4af37;
+    font-size: 32px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.footer-kolona h3 {
+    color: #d4af37;
+    font-size: 20px;
+    margin-bottom: 22px;
+}
+
+.footer-kolona p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+/* SLOGAN */
+
+.footer-slogan {
+    color: #f0d78d;
+    font-style: italic;
+}
+
+/* LINKOVI */
+
+.footer-kolona a {
+    display: block;
+    color: #dddddd;
+    text-decoration: none;
+    margin-bottom: 14px;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+    transition: color 0.3s ease;
+}
+
+.footer-kolona a:hover {
+    color: #d4af37;
+}
+
+/* DONJI DEO FOOTERA */
+
+.footer-dno {
+    margin-top: 55px;
+    padding: 22px 0;
+    border-top: 1px solid #3d3423;
+    text-align: center;
+}
+
+.footer-dno p {
+    color: #999999;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* PRILAGOĐAVANJE TABLETU */
+
+@media (max-width: 900px) {
+
+    .footer-sadrzaj {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 35px;
+    }
+}
+
+/* PRILAGOĐAVANJE TELEFONU */
+
+@media (max-width: 600px) {
+
+    .footer {
+        padding: 50px 25px 0;
+    }
+
+    .footer-sadrzaj {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .footer-kolona h2 {
+        font-size: 27px;
+    }
+
+    .footer-kolona h3 {
+        margin-bottom: 15px;
+    }
+
+    .footer-dno {
+        margin-top: 35px;
+    }
+}
+
+/* PROFIKOV - O NAMA */
+
+.o-nama-sekcija {
+    background: #111111;
+    color: #eeeeee;
+    padding: 90px 6%;
+}
+
+.o-nama-sadrzaj {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.o-nama-slika img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 2px solid #d4af37;
+    display: block;
+}
+
+.o-nama-oznaka {
+    color: #d4af37;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 13px;
+}
+
+.o-nama-tekst h2 {
+    color: #d4af37;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.2;
+    margin: 20px 0 25px;
+}
+
+.o-nama-tekst p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #cccccc;
+    margin-bottom: 16px;
+}
+
+.o-nama-prednosti {
+    max-width: 1200px;
+    margin: 55px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.o-nama-kartica {
+    background: #1e1e1e;
+    border: 1px solid #b89442;
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+}
+
+.o-nama-kartica h3 {
+    color: #d4af37;
+    margin-bottom: 12px;
+}
+
+.o-nama-kartica p {
+    color: #cccccc;
+    line-height: 1.6;
+}
+
+/* TELEFON */
+
+@media (max-width: 768px) {
+    .o-nama-sekcija {
+        padding: 60px 20px;
+    }
+
+    .o-nama-sadrzaj {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .o-nama-slika img {
+        height: auto;
+        max-height: 450px;
+        object-fit: cover;
+    }
+
+    .o-nama-prednosti {
+        grid-template-columns: 1fr;
+        margin-top: 35px;
+    }
+}
+
+/* PROFIKOV - DUGME ZA POZIV */
+
+.kontakt-poziv {
+    margin-left: 12px;
+    background: transparent;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+}
+
+.kontakt-poziv:hover {
+    background: #d4af37;
+    color: #111111;
+}
+
+/* Dugmad na telefonu */
+
+@media (max-width: 600px) {
+    .kontakt-poziv {
+        display: block;
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
+
+/* PROFIKOV - NAPOMENA O CENI */
+
+.napomena-cena {
+    color: #d8be80;
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 12px 0 25px;
+    font-style: italic;
+}
+/* FOTOGRAFIJE KOVANIH ELEMENATA */
+
+.proizvod-slika {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    display: block;
+}
+/* PROFIKOV - EFEKAT KARTICA O NAMA */
+
+.o-nama-kartica {
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.o-nama-kartica:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.22);
+}
+.kartica-ikonica {
+    width: 38px;
+    height: 38px;
+    color: #d4af37;
+    display: block;
+    margin: 0 auto 15px;
+}
+/* MANJI RAZMAK IZNAD GALERIJE NA TELEFONU */
+
+@media (max-width: 768px) {
+    .profikov-galerija {
+        padding-top: 30px;
+    }
+}
+/* MANJI RAZMAK ISPOD O NAMA NA TELEFONU */
+
+@media (max-width: 768px) {
+    .o-nama-sekcija {
+        padding-bottom: 25px;
+    }
+}
+/* MANJI RAZMAK IZMEDJU O NAMA I GALERIJE - RACUNAR */
+
+@media (min-width: 769px) {
+
+    .o-nama-sekcija {
+        padding-bottom: 35px;
+    }
+
+    .profikov-galerija {
+        padding-top: 35px;
+    }
+}
+/* RAZMAK IZMEDJU KOVANIH ELEMENATA I KONTAKTA */
+
+section.katalog-elemenata {
+    padding-bottom: 30px;
+}
+
+section.kontakt-sekcija {
+    padding-top: 30px;
+}
+/* PROFIKOV - PODIZANJE KOVANIH ELEMENATA */
+
+section.katalog-elemenata {
+    padding-top: 50px;
+}
+/* RAZMAK IZMEDJU O NAMA I GALERIJE */
+
+section.o-nama-sekcija {
+    padding-bottom: 30px;
+}
+
+section.profikov-galerija {
+    padding-top: 30px;
+}
+/* RAZMAK IZMEDJU GALERIJE I KONFIGURATORA */
+
+section.profikov-galerija {
+    padding-bottom: 30px;
+}
+
+section#konfigurator {
+    padding-top: 30px;
+}
+/* DUGME ZA OTVARANJE PONUDE */
+
+.ponuda-detalji {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ponuda-detalji summary {
+    background: #d4af37;
+    color: #111;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ponuda-detalji summary:hover {
+    background: #f2ca61;
+}
+
+.ponuda-detalji[open] summary {
+    margin-bottom: 15px;
+}
+/* DESNA STRANA KONFIGURATORA */
+
+.desna-strana-konfiguratora {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* TRI INFORMativNE KARTICE */
+
+.konfigurator-prednosti {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+.konfig-prednost {
+    background: #1e1e1e;
+    border: 1px solid #b89442;
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.konfig-ikonica {
+    display: block;
+    color: #d4af37;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.konfig-prednost p {
+    color: #f1d58a;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.konfig-prednost:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* TELEFON */
+
+@media (max-width: 768px) {
+    .konfigurator-prednosti {
+        gap: 8px;
+    }
+
+    .konfig-prednost {
+        padding: 14px 5px;
+    }
+
+    .konfig-prednost p {
+        font-size: 12px;
+    }
+}
+/* KONFIGURATOR - RACUNAR */
+
+@media (min-width: 769px) {
+    .desna-strana-konfiguratora {
+        position: sticky;
+        top: 20px;
+        align-self: start;
+    }
+}
+/* ELEGANTAN ZLATNI EFEKAT OKO KAPIJE */
+
+.desna-strana-konfiguratora .prikaz-kapije {
+    border: 2px solid #d4af37;
+    border-radius: 14px;
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, 0.65),
+        0 0 40px rgba(212, 175, 55, 0.30);
+    transition: box-shadow 0.3s ease;
+}
+/* RAZMAK IZMEDJU KONFIGURATORA I KOVANIH ELEMENATA */
+
+@media (min-width: 769px) {
+    section#konfigurator {
+        padding-bottom: 25px;
+    }
+
+    section#elementi {
+        padding-top: 30px;
+    }
+}
+/* PROFIKOV - DUGME PRIKAZI JOS */
+
+#prikaziJosFotografija {
+    background: linear-gradient(135deg, #d4af37, #f5d77b) !important;
+    color: #161616 !important;
+    border: 1px solid #f5d77b !important;
+    border-radius: 12px !important;
+    padding: 15px 35px !important;
+
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#prikaziJosFotografija:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 28px rgba(212, 175, 55, 0.6);
+}
+/* PROFIKOV - INSTAGRAM I FACEBOOK */
+
+.kontakt-mreze {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.instagram-ikonica,
+.facebook-ikonica {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    background: #151515;
+    color: #d4af37;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+}
+
+.instagram-ikonica:hover,
+.facebook-ikonica:hover {
+    background: #d4af37;
+    color: #111;
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px rgba(212, 175, 55, 0.6);
+}
+/* PROFIKOV - ANIMACIJA DRUSTVENIH MREZA */
+
+.kontakt-mreze span {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kontakt-mreze span:hover {
+    transform: translateY(-8px) scale(1.12);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+}
+/* PROFIKOV - SVE CETIRI IKONICE */
+
+.kontakt-kartica .kontakt-mreze > span {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px !important;
+    height: 52px !important;
+    flex: 0 0 52px;
+
+    border: 2px solid #d4af37 !important;
+    border-radius: 50% !important;
+    background: #171717;
+
+    font-size: 25px;
+    cursor: default;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.kontakt-kartica .kontakt-mreze > span:hover {
+    transform: translateY(-8px) scale(1.12);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+}
+/* PROFIKOV - FACEBOOK LINK */
+
+.kontakt-kartica .kontakt-mreze > a.facebook-ikonica {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 52px !important;
+    height: 52px !important;
+    flex: 0 0 52px;
+    border: 2px solid #d4af37 !important;
+    border-radius: 50% !important;
+    background: #171717;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kontakt-kartica .kontakt-mreze > a.facebook-ikonica:hover {
+    transform: translateY(-8px) scale(1.12);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+}
